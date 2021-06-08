@@ -1,5 +1,6 @@
-import { useQuery, gql } from '@apollo/client'
-import { Query } from '../generated/graphql'
+import { useQuery, gql, useMutation } from '@apollo/client'
+import React from 'react'
+import { Mutation, Query } from '../generated/graphql'
 
 const GET_NOTES_QUERY = gql`
 	query notes {
@@ -28,3 +29,18 @@ export default function Home(): JSX.Element {
 		</div>
 	)
 }
+
+const CREATE_NOTE_MUTATION = gql`
+	mutation CreateNote($title: String!, $text: String!) {
+		create(title: $title, text: $text) {
+			id
+			text
+			title
+		}
+	}
+`
+
+// function CreateNote(): JSX.Element {
+// 	const {} = useMutation<>()
+// 		return <div>hi</div>
+// }

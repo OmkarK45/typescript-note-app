@@ -1,4 +1,12 @@
-import { extendType, nonNull, nullable, objectType, stringArg } from 'nexus'
+import {
+	extendType,
+	mutationField,
+	mutationType,
+	nonNull,
+	nullable,
+	objectType,
+	stringArg,
+} from 'nexus'
 import { prisma } from '../context'
 
 export const Note = objectType({
