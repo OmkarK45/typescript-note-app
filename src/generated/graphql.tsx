@@ -16,16 +16,9 @@ export type Scalars = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  update?: Maybe<Note>;
   create?: Maybe<Note>;
   delete?: Maybe<Note>;
-};
-
-
-export type MutationUpdateArgs = {
-  title?: Maybe<Scalars['String']>;
-  text?: Maybe<Scalars['String']>;
-  id: Scalars['String'];
+  update?: Maybe<Note>;
 };
 
 
@@ -36,6 +29,13 @@ export type MutationCreateArgs = {
 
 
 export type MutationDeleteArgs = {
+  id: Scalars['String'];
+};
+
+
+export type MutationUpdateArgs = {
+  title?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
   id: Scalars['String'];
 };
 

@@ -1,6 +1,11 @@
 import { useQuery, gql, useMutation } from '@apollo/client'
 import React from 'react'
-import { Mutation, Query } from '../generated/graphql'
+import {
+	CreateNoteMutation,
+	CreateNoteMutationVariables,
+	Mutation,
+	Query,
+} from '../generated/graphql'
 
 const GET_NOTES_QUERY = gql`
 	query notes {
@@ -26,6 +31,7 @@ export default function Home(): JSX.Element {
 					</li>
 				)
 			})}
+			<CreateNote />
 		</div>
 	)
 }
@@ -40,7 +46,24 @@ const CREATE_NOTE_MUTATION = gql`
 	}
 `
 
-// function CreateNote(): JSX.Element {
-// 	const {} = useMutation<>()
-// 		return <div>hi</div>
-// }
+function CreateNote(): JSX.Element {
+	const [create, { data, error, loading }] = useMutation<
+		CreateNoteMutation,
+		CreateNoteMutationVariables
+	>(CREATE_NOTE_MUTATION, {
+		variables: {
+			text: 'This is latest data',
+			title: 'This is result of useMutation hook',
+		},
+	})
+	if (error) return <p>Oops.. something went wrong</p>
+
+	if (loading) return <p>Processing your request</p>
+
+	return (
+		<div>
+			<button onClick={() => create()}>Create Note</button>
+			{JSON.stringify(data)}
+		</div>
+	)
+}
