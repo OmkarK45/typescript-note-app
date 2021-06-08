@@ -1,15 +1,40 @@
 {
-  "name": "apollo-nextjs",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "next": "10.2.3",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
-  }
+	"name": "apollo-nextjs",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"generate": "graphql-codegen --config codegen.yml --watch",
+		"codegen": "graphql-codegen --config codegen.yml"
+	},
+	"dependencies": {
+		"@apollo/client": "^3.3.19",
+		"@prisma/client": "^2.24.0",
+		"apollo-server-micro": "^2.25.0",
+		"graphql": "^15.5.0",
+		"next": "10.2.3",
+		"nexus": "^1.0.0",
+		"nexus-prisma": "^0.28.0",
+		"react": "17.0.2",
+		"react-dom": "17.0.2"
+	},
+	"devDependencies": {
+		"@graphql-codegen/cli": "1.21.5",
+		"@graphql-codegen/introspection": "1.18.2",
+		"@graphql-codegen/near-operation-file-preset": "^1.18.0",
+		"@graphql-codegen/typescript": "1.22.1",
+		"@graphql-codegen/typescript-document-nodes": "1.17.11",
+		"@graphql-codegen/typescript-graphql-files-modules": "1.18.1",
+		"@graphql-codegen/typescript-operations": "1.18.0",
+		"@types/node": "^15.9.0",
+		"@types/react": "^17.0.9",
+		"@types/react-dom": "^17.0.6",
+		"@types/secure-password": "^3.1.0",
+		"babel-plugin-superjson-next": "^0.2.3",
+		"prisma": "^2.24.0",
+		"typescript": "^4.3.2",
+		"@graphql-codegen/typescript-react-apollo": "2.2.5"
+	}
 }
